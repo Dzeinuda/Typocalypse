@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://pcwk0glxt63v"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_pg7wp"]
+[ext_resource type="FontFile" uid="uid://8w4qsml5vlvx" path="res://fonts/Gohu/GohuFont11NerdFont-Regular.ttf" id="2_1nkbc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hd3yt"]
+radius = 40.7922
+
+[node name="Enemy" type="Sprite2D"]
+position = Vector2(227, 115)
+script = ExtResource("1_pg7wp")
+blue = Color(0.431735, 0.771482, 0.455143, 1)
+green = Color(1, 0.852092, 0.922649, 1)
+red = Color(0.474894, 0.504827, 0.505458, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -32.5
+offset_right = 196.5
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_1nkbc")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]Placeholder[/center]"
+scroll_active = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-59, -1)
+shape = SubResource("CircleShape2D_hd3yt")

@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="BHGamejam2024"
+run/main_scene="res://scenes/splash.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+
+[autoload]
+
+PromptList="*res://scripts/PromptList.gd"
+Difficulty="*res://scripts/Difficulty.gd"
+GlobalVars="*res://scripts/GlobalVars.gd"
+
+[display]
+
+window/stretch/mode="viewport"

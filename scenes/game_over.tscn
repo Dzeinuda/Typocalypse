@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct8uwcnf64bjb"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_05eam"]
+[ext_resource type="Texture2D" uid="uid://b21q7viyu767k" path="res://static/bg.png" id="1_i2g7k"]
+[ext_resource type="FontFile" uid="uid://8w4qsml5vlvx" path="res://fonts/Gohu/GohuFont11NerdFont-Regular.ttf" id="2_45yph"]
+[ext_resource type="AudioStream" uid="uid://b33rgjnl1h1pm" path="res://music_and_sound/end.ogg" id="4_ig1jd"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_05eam")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -377.0
+offset_top = -172.0
+offset_right = 1543.0
+offset_bottom = 908.0
+texture = ExtResource("1_i2g7k")
+
+[node name="Description" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 351.0
+offset_right = 1456.0
+offset_bottom = 645.0
+theme_override_fonts/normal_font = ExtResource("2_45yph")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]--Game over--
+
+
+
+
+
+
+
+Press [pulse freq=1.0 color=yellow]R[/pulse] to try again.[/center]"
+scroll_active = false
+
+[node name="Score" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00833333
+anchor_top = 0.012963
+anchor_right = 0.00833333
+anchor_bottom = 0.012963
+offset_left = 803.0
+offset_top = 440.0
+offset_right = 1104.0
+offset_bottom = 505.0
+theme_override_fonts/normal_font = ExtResource("2_45yph")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Mistypes" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0078125
+anchor_top = -0.012037
+anchor_right = 0.0078125
+anchor_bottom = -0.012037
+offset_left = 798.0
+offset_top = 503.0
+offset_right = 1111.0
+offset_bottom = 568.0
+theme_override_fonts/normal_font = ExtResource("2_45yph")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(585, 305)
+stream = ExtResource("4_ig1jd")
+autoplay = true

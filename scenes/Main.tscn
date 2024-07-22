@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkdwfirg2m4oi"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_sy5oc"]
+[ext_resource type="Texture2D" uid="uid://b21q7viyu767k" path="res://static/bg.png" id="2_esmel"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="3_ykdkl"]
+[ext_resource type="FontFile" uid="uid://8w4qsml5vlvx" path="res://fonts/Gohu/GohuFont11NerdFont-Regular.ttf" id="4_abp4k"]
+[ext_resource type="AudioStream" uid="uid://cteoxfvxis6v3" path="res://music_and_sound/wrong.ogg" id="5_mbxse"]
+[ext_resource type="AudioStream" uid="uid://doc7ypqfg5bos" path="res://music_and_sound/good.ogg" id="6_k5a7e"]
+[ext_resource type="AudioStream" uid="uid://dg6tb8vi6s2tr" path="res://music_and_sound/bg.ogg" id="7_js0lf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sou7y"]
+size = Vector2(25, 626)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_sy5oc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+offset_left = -315.0
+offset_top = -172.0
+offset_right = 1605.0
+offset_bottom = 908.0
+texture = ExtResource("2_esmel")
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 324)
+script = ExtResource("3_ykdkl")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[node name="LoseZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoseZone"]
+position = Vector2(-19, 324)
+shape = SubResource("RectangleShape2D_sou7y")
+
+[node name="Scoreboard" type="RichTextLabel" parent="."]
+offset_left = 27.0
+offset_top = 18.0
+offset_right = 250.0
+offset_bottom = 140.0
+theme_override_fonts/normal_font = ExtResource("4_abp4k")
+theme_override_font_sizes/normal_font_size = 25
+
+[node name="WrongSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_mbxse")
+
+[node name="GoodSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_k5a7e")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(576, 320)
+stream = ExtResource("7_js0lf")
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="LoseZone" to="." method="_on_lose_zone_area_entered"]
